@@ -1,6 +1,6 @@
 type Operation = 'multiply' | 'add' | 'divide';
 
-const multiplicator = (a: number, b: number, op: Operation): number | string => {
+const multiplicator = (a: number, b: number, op: Operation): number => {
   switch (op) {
     case 'multiply':
       return a * b;
@@ -9,8 +9,18 @@ const multiplicator = (a: number, b: number, op: Operation): number | string => 
       return a + b;
 
     case 'divide':
-      return b === 0 ? "can't divide by 0" : a / b;
+      if (b === 0) throw new Error("can't divide by zero");
+      return a / b;
+
+    default:
+      throw new Error('Operation is neither +, * or /')
   }
 };
 
-console.log(multiplicator(2, 3, 'divide'));
+try {
+  console.log(multiplicator(2, 0, 'divide'));
+} catch (err: unknown) {
+  let errorMessage = 'Something went wrong: '
+  if (err instanceof Error) errorMessage += err.message;
+  console.log(errorMessage)
+} 

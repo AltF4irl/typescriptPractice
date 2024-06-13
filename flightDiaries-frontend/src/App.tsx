@@ -28,7 +28,7 @@ function App() {
       setDiaries(diaries.concat(res));
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        console.log(err)
+        console.log(err);
         setNotification({
           visible: true,
           message: err.response?.data.error,

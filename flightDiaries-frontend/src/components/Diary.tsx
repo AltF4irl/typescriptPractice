@@ -1,7 +1,7 @@
-import { NonSensitiveDiaryEntries } from "../types";
+import { NonSensitiveDiaryEntries } from '../types';
 
 interface DiaryProps {
-  diary: NonSensitiveDiaryEntries
+  diary: NonSensitiveDiaryEntries;
 }
 
 const Diary = (props: DiaryProps) => {

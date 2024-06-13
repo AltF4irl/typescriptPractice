@@ -7,12 +7,12 @@ const getAll = async () => {
   return res.data;
 };
 
-const create = async (entry:newDiaryEntry) => {
-  const res = await axios.post<DiaryEntry>(baseURL, entry)
-  return res.data
-}
+const create = async (entry: newDiaryEntry) => {
+  const res = await axios.post<DiaryEntry>(baseURL, entry);
+  return res.data;
+};
 
 export default {
   getAll,
-  create
+  create,
 };

@@ -7,8 +7,8 @@ interface DiaryFormProps {
 
 const DiaryForm = (props: DiaryFormProps) => {
   const [date, setDate] = useState<string>('');
-  const [visibility, setVisibility] = useState<Visibility>(Visibility.Poor);
-  const [weather, setWeather] = useState<Weather>(Weather.Cloudy);
+  const [visibility, setVisibility] = useState<Visibility>(Visibility.Great);
+  const [weather, setWeather] = useState<Weather>(Weather.Sunny);
   const [comment, setComment] = useState<string>('');
 
   const submitHandler = async (e: React.SyntheticEvent) => {
@@ -29,25 +29,69 @@ const DiaryForm = (props: DiaryFormProps) => {
       <div>
         date:
         <input
-          type="text"
+          type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
       </div>
       <div>
-        visibility:
+        visibility: great
         <input
-          type="text"
-          value={visibility}
-          onChange={(e) => setVisibility(e.target.value as Visibility)}
+          name="visibility"
+          type="radio"
+          onChange={() => setVisibility(Visibility.Great)}
+          defaultChecked
+        />
+        good
+        <input
+          name="visibility"
+          type="radio"
+          onChange={() => setVisibility(Visibility.Good)}
+        />
+        ok
+        <input
+          name="visibility"
+          type="radio"
+          onChange={() => setVisibility(Visibility.Ok)}
+        />
+        poor
+        <input
+          name="visibility"
+          type="radio"
+          onChange={() => setVisibility(Visibility.Poor)}
         />
       </div>
       <div>
-        weather
+        weather Sunnny
         <input
-          type="text"
-          value={weather}
-          onChange={(e) => setWeather(e.target.value as Weather)}
+          name="weather"
+          type="radio"
+          onChange={() => setWeather(Weather.Sunny)}
+          defaultChecked
+        />
+        Rainy
+        <input
+          name="weather"
+          type="radio"
+          onChange={() => setWeather(Weather.Rainy)}
+        />
+        Cloudy
+        <input
+          name="weather"
+          type="radio"
+          onChange={() => setWeather(Weather.Cloudy)}
+        />
+        Stormy
+        <input
+          name="weather"
+          type="radio"
+          onChange={() => setWeather(Weather.Stormy)}
+        />
+        Windy
+        <input
+          name="weather"
+          type="radio"
+          onChange={() => setWeather(Weather.Windy)}
         />
       </div>
       <div>
